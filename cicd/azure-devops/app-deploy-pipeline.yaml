@@ -44,5 +44,5 @@ steps:
     # Changes the permissions of a file to make it readable and writable only by the file owner, with no permissions for any other user: 
     chmod 600 $(Agent.TempDirectory)/dummy.pem
 
-    ssh -o StrictHostKeyChecking=no -i $(Agent.TempDirectory)/dummy.pem ec2-user@3.227.253.109 'sudo cd /usr/share/nginx/html/DevOps_Projects/application/ && git pull https://github.com/anveshmuppeda/DevOps-Projects.git'
+    ssh -o StrictHostKeyChecking=no -i $(Agent.TempDirectory)/dummy.pem ec2-user@3.227.253.109 'sudo cd /usr/share/nginx/html/DevOps_Projects/ && git pull'
   displayName: 'Deploy Appplication'

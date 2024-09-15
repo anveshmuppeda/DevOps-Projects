@@ -48,9 +48,10 @@ steps:
     chmod 600 $(Agent.TempDirectory)/dummy.pem
 
     # Upload 'application' directory to EC2 instance:
+    ls -lrta
     echo "Uploading 'application' directory to EC2 instance..."
-    scp -r -o StrictHostKeyChecking=no -i $(Agent.TempDirectory)/dummy.pem $(Agent.TempDirectory)/application ec2-user@3.227.253.109:/usr/share/nginx/html/DevOps-Projects/application
-    echo "'application' directory successfully uploaded to /var/www/html on EC2 instance."
+    scp -r -o StrictHostKeyChecking=no -i $(Agent.TempDirectory)/dummy.pem application ec2-user@3.227.253.109:/usr/share/nginx/html/DevOps-Projects/application
+    echo "'application' directory successfully uploaded to  EC2 instance."
 
     ssh -o StrictHostKeyChecking=no -i $(Agent.TempDirectory)/dummy.pem ec2-user@3.227.253.109 'sudo cd /usr/share/nginx/html/DevOps-Projects/ && pwd && ls /usr/share/nginx/html/'
   displayName: 'Deploy Appplication'

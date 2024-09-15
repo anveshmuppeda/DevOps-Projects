@@ -1,0 +1,23 @@
+trigger:
+- none
+
+# agent pool details: name --> name of the agent pool, vmImage --> Image ID of VM
+pool:
+  name: k8s-self-hosted
+
+# a task that should be executed
+# task declaration
+steps:
+- task: Bash@3
+  displayName: 'Install AWS CLI'
+  inputs:
+    # specifies that the script is written directly within the YAML file
+    targetType: 'inline'
+    script: |
+      sudo apt-get update
+      sudo apt-get install awscli -y
+- task: AWSCLI@1
+  inputs:
+    awsCredentials: 'AWS-BUILD-DEPLOY-ROLE'
+    regionName: 'ap-east-1'
+    awsCommand: 'test'

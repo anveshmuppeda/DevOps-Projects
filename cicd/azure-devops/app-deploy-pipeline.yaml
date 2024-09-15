@@ -10,6 +10,7 @@ pool:
 steps:
 - task: Bash@3
   displayName: 'Install AWS CLI'
+  enabled: false
   inputs:
     # specifies that the script is written directly within the YAML file
     targetType: 'inline'
@@ -19,6 +20,7 @@ steps:
        aws --version
 - task: Bash@3
   displayName: 'Install Git'
+  enabled: false
   inputs:
     # specifies that the script is written directly within the YAML file
     targetType: 'inline'
@@ -34,6 +36,7 @@ steps:
     targetPath: '$(Agent.TempDirectory)'
 
 - task: AWSShellScript@1
+  enabled: false
   inputs:
     awsCredentials: 'AWS-BUILD-DEPLOY-ROLE'
     regionName: 'us-east-1'
@@ -44,5 +47,5 @@ steps:
     # Changes the permissions of a file to make it readable and writable only by the file owner, with no permissions for any other user: 
     chmod 600 $(Agent.TempDirectory)/dummy.pem
 
-    ssh -o StrictHostKeyChecking=no -i $(Agent.TempDirectory)/dummy.pem ec2-user@3.227.253.109 'sudo cd /usr/share/nginx/html/DevOps-Projects/ && git pull https://github.com/anveshmuppeda/DevOps-Projects.git'
+    ssh -o StrictHostKeyChecking=no -i $(Agent.TempDirectory)/dummy.pem ec2-user@3.227.253.109 'sudo cd /usr/share/nginx/html/DevOps-Projects/ && pwd && ls && git pull https://github.com/anveshmuppeda/DevOps-Projects.git'
   displayName: 'Deploy Appplication'

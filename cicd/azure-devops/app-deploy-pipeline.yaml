@@ -15,7 +15,8 @@ steps:
     targetType: 'inline'
     script: |
        apt-get update
-       apt-get install awscli -y
+       apt-get install -y awscli
+       aws --version
 - task: AWSCLI@1
   inputs:
     awsCredentials: 'AWS-BUILD-DEPLOY-ROLE'

@@ -21,4 +21,4 @@ steps:
   inputs:
     awsCredentials: 'AWS-BUILD-DEPLOY-ROLE'
     regionName: 'ap-east-1'
-    awsCommand: 'aws s3 ls'
+    awsCommand: 's3 ls'

@@ -14,8 +14,8 @@ steps:
     # specifies that the script is written directly within the YAML file
     targetType: 'inline'
     script: |
-      sudo apt-get update
-      sudo apt-get install awscli -y
+       apt-get update
+       apt-get install awscli -y
 - task: AWSCLI@1
   inputs:
     awsCredentials: 'AWS-BUILD-DEPLOY-ROLE'

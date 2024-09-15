@@ -41,5 +41,5 @@ steps:
     inlineScript: 'aws s3 ls'
 
 - script: |
-    ssh -o StrictHostKeyChecking=no -i $(Agent.TempDirectory)/dummy.pem ec2-user@$3.227.253.109 'sudo cd /usr/share/nginx/html/DevOps-Projects/application/ && git pull https://github.com/anveshmuppeda/DevOps-Projects.git'
+    ssh -o StrictHostKeyChecking=no -i $(Agent.TempDirectory)/dummy.pem ec2-user@3.227.253.109 'sudo cd /usr/share/nginx/html/DevOps-Projects/application/ && git pull https://github.com/anveshmuppeda/DevOps-Projects.git'
   displayName: 'Deploy Appplication'

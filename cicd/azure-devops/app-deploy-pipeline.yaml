@@ -1,5 +1,5 @@
 trigger:
-- none
+- main
 
 # agent pool details: name --> name of the agent pool, vmImage --> Image ID of VM
 pool:

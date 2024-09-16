@@ -47,14 +47,11 @@ steps:
     # Changes the permissions of a file to make it readable and writable only by the file owner, with no permissions for any other user: 
     chmod 600 $(Agent.TempDirectory)/dummy.pem
 
-    # Upload 'application' directory to EC2 instance:
-    ls -lrta
-
     # Change permissions:
-    ssh -o StrictHostKeyChecking=no -i $(Agent.TempDirectory)/dummy.pem ec2-user@3.227.253.109 'sudo chmod 777 /usr/share/nginx/html/DevOps-Projects/application'
+    ssh -o StrictHostKeyChecking=no -i $(Agent.TempDirectory)/dummy.pem ec2-user@3.227.253.109 'sudo chmod 777 /usr/share/nginx/html/DevOps-Projects'
 
     echo "Uploading 'application' directory to EC2 instance..."
-    scp -r -o StrictHostKeyChecking=no -i $(Agent.TempDirectory)/dummy.pem application ec2-user@3.227.253.109:/usr/share/nginx/html/DevOps-Projects/application
+    scp -r -o StrictHostKeyChecking=no -i $(Agent.TempDirectory)/dummy.pem application ec2-user@3.227.253.109:/usr/share/nginx/html/DevOps-Projects
     echo "'application' directory successfully uploaded to  EC2 instance."
 
     ssh -o StrictHostKeyChecking=no -i $(Agent.TempDirectory)/dummy.pem ec2-user@3.227.253.109 'sudo cd /usr/share/nginx/html/DevOps-Projects/ && pwd && ls /usr/share/nginx/html/'
